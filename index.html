@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Автотесты</title>
+  </head>
+  <body>
+    <h1>Автотесты для домашнего задания</h1>
+    <pre id="output"></pre>
+    <script src="./2.functions/task.js"></script>
+    <script src="./2.functions/tests.js"></script>
+    <script>
+      // перенаправляем console.log в экран
+      const originalLog = console.log;
+      const output = document.getElementById('output');
+      console.log = function(...args) {
+        output.textContent += args.join(' ') + '\n';
+        originalLog(...args);
+      };
+    </script>
+  </body>
+</html>
