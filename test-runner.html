@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Запуск тестов</title>
+</head>
+<body>
+    <div id="test-results"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.min.js"></script>
+    <script src="tests.js"></script>
+    <script>
+        jasmine.getEnv().updateInterval = 1000;
+        jasmine.init();
+        jasmine.execute();
+    </script>
+</body>
+</html>
