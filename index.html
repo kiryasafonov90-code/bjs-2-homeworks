@@ -1,15 +1,84 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <title>BJS-2: Основные понятия (отладка)</title>
-  </head>
-  <body>
-    <h1>Задание «Основные понятия»: отладка в JS</h1>
-    <p>Решение размещено в папке <code>hw-debugger</code>.</p>
-    <ul>
-      <li><a href="hw-debugger/README.md">Условие задания</a></li>
-      <li><a href="hw-debugger/task.js">Код решения (task.js)</a></li>
-    </ul>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BJS-2 — JavaScript Homeworks</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:Arial,Helvetica,sans-serif; line-height:1.6; background:#f5f7fa; color:#24292f; }
+    header { background:#24292f; color:white; padding:50px 20px; }
+    header .container, main, footer { max-width:1100px; margin:0 auto; }
+    header h1 { margin:0 0 10px; font-size:36px; }
+    header p { margin:0; color:#d0d7de; font-size:18px; }
+    main { padding:35px 20px; }
+    section { background:white; margin-bottom:25px; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+    h2 { margin-top:0; border-bottom:1px solid #eaeef2; padding-bottom:10px; }
+    a { color:#0969da; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .homework-list { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:20px; }
+    .homework { display:block; padding:20px; border:1px solid #d0d7de; border-radius:8px; background:white; transition:.15s; }
+    .homework:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.1); text-decoration:none; }
+    .homework-number { display:inline-block; margin-bottom:8px; padding:3px 8px; border-radius:5px; background:#f6f8fa; color:#57606a; font-size:13px; font-weight:bold; }
+    .homework-title { display:block; margin-bottom:6px; color:#24292f; font-size:18px; font-weight:bold; }
+    .homework-description { display:block; color:#57606a; font-size:14px; }
+    .debugger { border-left:4px solid #0969da; }
+    .note { padding:16px 18px; margin-top:20px; background:#ddf4ff; border-left:4px solid #0969da; border-radius:4px; }
+    .links { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
+    .button { display:inline-block; padding:10px 16px; border-radius:6px; background:#0969da; color:white; font-weight:bold; }
+    .button:hover { background:#0757b2; color:white; text-decoration:none; }
+    .button.secondary { background:#6e7781; }
+    .button.secondary:hover { background:#57606a; }
+    footer { padding:10px 20px 40px; text-align:center; color:#57606a; font-size:14px; }
+    @media (max-width:700px) { header h1{font-size:28px;} .homework-list{grid-template-columns:1fr;} section{padding:22px;} }
+  </style>
+</head>
+<body>
+<header><div class="container">
+  <h1>BJS-2 — JavaScript Homeworks</h1>
+  <p>Практические задания по JavaScript</p>
+</div></header>
+<main>
+  <section>
+    <h2>Добро пожаловать</h2>
+    <p>Здесь собраны практические задания курса <strong>BJS-2</strong> по JavaScript.</p>
+    <p>Выберите нужную тему, чтобы перейти к заданию и исходному коду.</p>
+    <div class="note"><strong>Начните с задания 0:</strong> работа с отладчиком браузера.</div>
+  </section>
+
+  <section>
+    <h2>Практические задания</h2>
+    <div class="homework-list">
+      <a class="homework debugger" href="./0.debugger/"><span class="homework-number">0</span><span class="homework-title">Отладка в браузере</span><span class="homework-description">Debugger, Breakpoints, Watch, Scope, Call Stack и Console.</span></a>
+      <a class="homework" href="./1.base-concepts/"><span class="homework-number">1</span><span class="homework-title">Основные понятия</span><span class="homework-description">Базовые конструкции JavaScript.</span></a>
+      <a class="homework" href="./2.functions/"><span class="homework-number">2</span><span class="homework-title">Функции</span><span class="homework-description">Работа с функциями и параметрами.</span></a>
+      <a class="homework" href="./3.arrays/"><span class="homework-number">3</span><span class="homework-title">Массивы</span><span class="homework-description">Методы массивов и коллекции данных.</span></a>
+      <a class="homework" href="./4.objects/"><span class="homework-number">4</span><span class="homework-title">Объекты</span><span class="homework-description">Объекты, свойства и методы.</span></a>
+      <a class="homework" href="./5.classes/"><span class="homework-number">5</span><span class="homework-title">Классы</span><span class="homework-description">Классы, конструкторы и наследование.</span></a>
+      <a class="homework" href="./6.exception-closure/"><span class="homework-number">6</span><span class="homework-title">Исключения и замыкания</span><span class="homework-description">Обработка ошибок и замыкания.</span></a>
+      <a class="homework" href="./7.async/"><span class="homework-number">7</span><span class="homework-title">Асинхронность</span><span class="homework-description">Асинхронный JavaScript и Promise.</span></a>
+      <a class="homework" href="./8.decorators/"><span class="homework-number">8</span><span class="homework-title">Декораторы</span><span class="homework-description">Декораторы и изменение поведения функций.</span></a>
+      <a class="homework" href="./Jasmine/"><span class="homework-number">Tests</span><span class="homework-title">Jasmine</span><span class="homework-description">Автоматическое тестирование JavaScript-кода.</span></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Отладка JavaScript</h2>
+    <p>Практическое задание с пошаговой инструкцией и запуском проекта.</p>
+    <div class="links">
+      <a class="button" href="./0.debugger/">Перейти к заданию</a>
+      <a class="button secondary" href="./0.debugger/DebuggerTutorial.md">Туториал</a>
+      <a class="button secondary" href="./0.debugger/ProjectDescription.md">Описание проекта</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Репозиторий</h2>
+    <div class="links">
+      <a class="button secondary" href="https://github.com/kiryasafonov90-code/bjs-2-homeworks" target="_blank" rel="noopener noreferrer">Открыть GitHub</a>
+    </div>
+  </section>
+</main>
+<footer>BJS-2 · JavaScript Homeworks</footer>
+</body>
 </html>
