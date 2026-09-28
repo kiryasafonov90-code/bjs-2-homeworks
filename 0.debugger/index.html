@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Работа с отладкой в браузере — BJS-2</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;line-height:1.6;background:#f5f7fa;color:#24292f}
+    header{background:#24292f;color:white;padding:40px 20px}
+    header .container,main{max-width:1000px;margin:0 auto}
+    header h1{margin:0 0 10px;font-size:32px}
+    header p{margin:0;color:#d0d7de;font-size:18px}
+    main{padding:30px 20px}
+    section{background:white;margin-bottom:24px;padding:28px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+    h2{margin-top:0;border-bottom:1px solid #eaeef2;padding-bottom:10px}
+    a{color:#0969da;text-decoration:none} a:hover{text-decoration:underline}
+    .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+    .button{display:inline-block;padding:10px 16px;border-radius:6px;background:#0969da;color:white;font-weight:bold}
+    .button:hover{background:#0757b2;color:white;text-decoration:none}
+    .button.secondary{background:#6e7781}.button.secondary:hover{background:#57606a}
+    ol{padding-left:28px}li{margin-bottom:12px}
+    code{background:#f6f8fa;border:1px solid #d0d7de;border-radius:5px;padding:2px 6px;font-family:Consolas,monospace}
+    pre{background:#24292f;color:#f0f6fc;padding:16px;border-radius:8px;overflow-x:auto}
+    pre code{background:transparent;border:0;padding:0;color:inherit}
+    .note{background:#ddf4ff;border-left:4px solid #0969da;padding:15px 18px;margin:20px 0;border-radius:4px}
+    footer{text-align:center;padding:10px 20px 30px;color:#57606a;font-size:14px}
+    @media(max-width:600px){header h1{font-size:25px}section{padding:20px}.links{flex-direction:column}.button{text-align:center}}
+  </style>
+</head>
+<body>
+<header><div class="container"><h1>Работа с отладкой в браузере</h1><p>BJS-2 · Практическое задание по JavaScript</p></div></header>
+<main>
+<section>
+<h2>Перед началом работы</h2>
+<p>Ознакомьтесь с базовыми возможностями отладки JavaScript в Google Chrome и с функциональностью проекта.</p>
+<div class="links">
+<a class="button" href="./DebuggerTutorial.md">Туториал по отладке</a>
+<a class="button secondary" href="./ProjectDescription.md">Описание проекта</a>
+<a class="button secondary" href="./runmain.html">Запустить проект</a>
+</div>
+</section>
+
+<section>
+<h2>Практическое задание</h2>
+<p>Код уже готов. Необходимо исследовать его выполнение с помощью инструментов разработчика браузера.</p>
+<div class="note"><strong>Цель:</strong> научиться использовать Breakpoints, пошаговое выполнение, Call Stack, Scope, Watch и Console.</div>
+</section>
+
+<section>
+<h2>Пошаговая инструкция</h2>
+<ol>
+<li>Запустите файл <code>index.html</code>.</li>
+<li>Найдите начало выполнения кода.</li>
+<li>Поставьте breakpoint внутри функции <code>play</code>.</li>
+<li>Обновите страницу, чтобы остановиться на точке останова.</li>
+<li>Переходите к следующей конструкции по шагам с помощью <code>F10</code>.</li>
+<li>Поставьте breakpoint внутри метода <code>turn</code> на 232 строке.</li>
+<li>Продолжайте выполнение до остановки в методе <code>turn</code>.</li>
+<li>Наведите курсор на <code>this.playerEnemy</code>. Если противника нет, будет <code>undefined</code>.</li>
+<li>Продолжайте выполнение с помощью <code>F10</code> или <code>F11</code>. При входе внутрь функции можно увидеть работу <code>chooseEnemy</code>.</li>
+<li>Добавьте в Watch текущего воина: <code>this</code>.</li>
+<li>В Watch измените скорость воина — свойство <code>speed</code>.</li>
+<li>В Scope измените прочность оружия — свойство <code>durability</code> объекта <code>weapon</code>.</li>
+<li>Уменьшите здоровье выбранного противника до любого значения.</li>
+<li>В Console смените оружие противника на нож:
+<pre><code>this.playerEnemy.weapon = new Knife()</code></pre></li>
+<li>Продвигайтесь по коду как можно глубже, используя пошаговое выполнение, и наблюдайте за Call Stack.</li>
+<li>Поставьте breakpoint в методе <code>isDead()</code>.</li>
+<li>Добавьте условие срабатывания breakpoint:
+<pre><code>this.life == 0</code></pre></li>
+<li>Продолжайте выполнение до остановки в условной точке.</li>
+<li>В Console выполните <code>this</code> и убедитесь, что <code>life</code> равно нулю.</li>
+<li>Воскресите воина, изменив значение <code>life</code> двойным кликом.</li>
+<li>В Breakpoints выключите все точки останова и продолжите выполнение.</li>
+<li>Из Console запустите битву с другими пользователями, вызвав функцию <code>play</code> с массивом персонажей.</li>
+</ol>
+</section>
+
+<section>
+<h2>Полезные инструменты</h2>
+<ul>
+<li><strong>F10</strong> — следующая строка;</li>
+<li><strong>F11</strong> — войти внутрь функции;</li>
+<li><strong>Shift + F11</strong> — выйти из функции;</li>
+<li><strong>F8</strong> — продолжить выполнение;</li>
+<li><strong>Watch</strong> — отслеживание выражений;</li>
+<li><strong>Scope</strong> — текущие переменные;</li>
+<li><strong>Call Stack</strong> — цепочка вызовов;</li>
+<li><strong>Console</strong> — выполнение JavaScript-команд.</li>
+</ul>
+</section>
+
+<section>
+<h2>Исходный код</h2>
+<div class="links">
+<a class="button" href="./task.js">Открыть task.js</a>
+<a class="button secondary" href="./README.md">Открыть README.md</a>
+<a class="button secondary" href="../index.html">← На главную</a>
+</div>
+</section>
+</main>
+<footer>BJS-2 · Работа с отладкой в браузере</footer>
+</body>
+</html>
